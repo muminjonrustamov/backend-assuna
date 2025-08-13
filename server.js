@@ -4,11 +4,8 @@ const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
+app.use(cors());
 app.use(express.json());
-app.use(cors({
-  origin: 'https://assuna.netlify.app',
-  credentials: true,
-}));
 
 mongoose.connect('mongodb+srv://rustamovabdumuminjon:FPLpnvItvIdOMziU@products.f8glzge.mongodb.net/?retryWrites=true&w=majority&appName=Products', {
   useNewUrlParser: true,
