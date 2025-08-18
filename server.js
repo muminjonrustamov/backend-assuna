@@ -6,9 +6,8 @@ require('dotenv').config();
 const app = express();
 app.use(cors());
 
-// 📌 Увеличиваем лимит тела запроса
-app.use(express.json({ limit: '100mb' }));
-app.use(express.urlencoded({ limit: '100mb', extended: true }));
+app.use(express.json({ limit: '500mb' }));
+app.use(express.urlencoded({ limit: '500mb', extended: true }));
 
 mongoose.connect(
   'mongodb+srv://rustamovabdumuminjon:FPLpnvItvIdOMziU@products.f8glzge.mongodb.net/?retryWrites=true&w=majority&appName=Products',
