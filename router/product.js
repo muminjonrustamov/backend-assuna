@@ -10,7 +10,7 @@ const ProductSchema = new mongoose.Schema({
   description_ru: String,
   description_uz: String,
   category: String,
-  image: String
+  images: [String]
 });
 
 const Product = mongoose.model('Product', ProductSchema);
@@ -30,7 +30,7 @@ router.post('/', async (req, res) => {
 
 router.get('/ca', async (req, res) => {
   try {
-    const products = await Product.find().populate('category');
+    const products = await Product.find();
     res.json(products);
   } catch (err) {
     res.status(500).json({ message: 'Ошибка при получении продуктов', error: err.message });
